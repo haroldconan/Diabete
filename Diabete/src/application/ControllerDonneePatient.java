@@ -3,9 +3,18 @@ package application;
 import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class ControllerDonneePatient {
+	
+	@FXML
+	private TextField taille;
+	@FXML
+	private TextField poids;
+	
 	public void NouvelleEntree(ActionEvent event) {
+		
 		System.out.println("Button Clicked!");
 	       JOptionPane jop1;
 	       
@@ -38,9 +47,9 @@ public class ControllerDonneePatient {
 	     Main.replaceSceneContent("designLog.fxml");
 	   }
 	public void Valider(ActionEvent event) {
-	       System.out.println("Button Clicked!");
+	      
 	       JOptionPane jop1;
-	       
+	       System.out.println(taille.getText() +" "+poids.getText());
 	     //Boîte du message d'information
 	     Main.replaceSceneContent("designResultatPatient.fxml");
 	   }

@@ -37,10 +37,10 @@
                         <Font name="Arial Narrow" size="15.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="126.0" layoutY="93.0" promptText="Nom" />
-                  <TextField layoutX="473.0" layoutY="163.0" promptText="jj/mm/aaaa" />
-                  <TextField layoutX="473.0" layoutY="93.0" promptText="Prénom" />
-                  <TextField layoutX="126.0" layoutY="252.0" prefHeight="31.0" prefWidth="346.0" promptText="Numéro de sécurité sociale" />
+                  <TextField fx:id="Nom" layoutX="126.0" layoutY="93.0" promptText="Nom" />
+                  <TextField fx:id="DateNaissance" layoutX="473.0" layoutY="163.0" promptText="jj/mm/aaaa" />
+                  <TextField fx:id="Prenom" layoutX="473.0" layoutY="93.0" promptText="Prénom" />
+                  <TextField fx:id="NumSecu" layoutX="126.0" layoutY="252.0" prefHeight="31.0" prefWidth="346.0" promptText="Numéro de sécurité sociale" />
                   <Button layoutX="689.0" layoutY="407.0" mnemonicParsing="false" onAction="#Valider" text="Valider" />
                   <Text layoutX="126.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe : " />
                   <ComboBox fx:id="sexe" layoutX="186.0" layoutY="179.0" prefHeight="31.0" prefWidth="126.0" promptText="..." />

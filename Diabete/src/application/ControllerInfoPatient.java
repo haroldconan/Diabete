@@ -5,12 +5,21 @@ import javax.swing.JOptionPane;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ControllerInfoPatient {
-	
+	@FXML
+	private TextField Nom;
+	@FXML
+	private TextField DateNaissance;
+	@FXML
+	private TextField Prenom;
+	@FXML
+	private TextField NumSecu;
 	
 	public void NouvelleEntree(ActionEvent event) {
 		System.out.println("Button Clicked!");
@@ -45,7 +54,7 @@ public class ControllerInfoPatient {
 	     Main.replaceSceneContent("designLog.fxml");
 	   }
 	public void Valider(ActionEvent event) {
-	       System.out.println("Button Clicked!");
+	       System.out.println(Nom.getText()+" "+Prenom.getText()+" "+DateNaissance.getText()+" "+NumSecu.getText());
 	       JOptionPane jop1;
 	       
 	     //Boîte du message d'information

@@ -37,16 +37,16 @@ public class Main extends Application {
 	static ObservableList<String> listAntiHTA = FXCollections.observableArrayList("Non","Oui");
 	static ObservableList<String> listLegumes = FXCollections.observableArrayList("Non", "Tous les jours","Pas tous les jours");
 	static ObservableList<String> listGlycee = FXCollections.observableArrayList("Non","Oui");
-	static ObservableList<String> listFamille = FXCollections.observableArrayList("Non","Oui (grands parents, tante, oncle, cousins");
+	static ObservableList<String> listFamille = FXCollections.observableArrayList("Non","Oui (grands parents, tante, oncle, cousins)");
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			stage = primaryStage;
+			stage.setTitle("Diabete 2");
 			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			    @Override
 			    public void handle(WindowEvent event) {
-			    	JOptionPane jop1 = new JOptionPane();
-				    int result = jop1.showConfirmDialog(null, "Etes vous sûre de vouloir quitter ? ");
+			    	int result = JOptionPane.showConfirmDialog(null, "Etes vous sûre de vouloir quitter ? ");
 				    if(result == 1 || result == 2) {
 				    	event.consume();
 				    }
@@ -75,6 +75,8 @@ public class Main extends Application {
         } else {
             stage.getScene().setRoot(page);
             if(fxml.equals("designInfoPatient.fxml")) {
+            	
+            	
             	comboSexe = (ComboBox<String>) scene.lookup("#sexe");
             	comboSexe.setItems(listSexe);
             	EventHandler<ActionEvent> event = 
@@ -82,6 +84,14 @@ public class Main extends Application {
                   public void handle(ActionEvent e) 
                   { 
                       System.out.println(comboSexe.getValue()); 
+                      switch(comboSexe.getValue()) {
+	                      case "Homme":{
+	                    	  
+	                      }break;
+	                      case "Femme":{
+	                    	  
+	                      }break;
+                      }
                   } 
             	};
             	comboSexe.setOnAction(event);
@@ -90,14 +100,25 @@ public class Main extends Application {
             if(fxml.equals("designDonneePatient.fxml")) {
             	comboTourTaille = (ComboBox<String>) scene.lookup("#tourTaille");
             	comboTourTaille.setItems(listTourTaille);
-            	EventHandler<ActionEvent> eventSexe = 
+            	EventHandler<ActionEvent> eventTourTaille = 
                         new EventHandler<ActionEvent>() { 
                   public void handle(ActionEvent e) 
                   { 
-                      System.out.println(comboSexe.getValue()); 
+                      System.out.println(comboTourTaille.getValue()); 
+                      switch(comboTourTaille.getValue()) {
+                      case "<94":{
+                    	  
+                      }break;
+                      case "94-102":{
+                    	  
+                      }break;
+                      case ">102":{
+                    	  
+                      }
+                  }
                   } 
             	};
-            	comboSexe.setOnAction(eventSexe);
+            	comboSexe.setOnAction(eventTourTaille);
             	
             	
             	comboActiviteePhysique = (ComboBox<String>) scene.lookup("#actiPhysique");
@@ -106,7 +127,15 @@ public class Main extends Application {
                         new EventHandler<ActionEvent>() { 
                   public void handle(ActionEvent e) 
                   { 
-                      System.out.println(comboActiviteePhysique.getValue()); 
+                      System.out.println(comboActiviteePhysique.getValue());
+                      switch(comboActiviteePhysique.getValue()) {
+                      case "Oui":{
+                    	  
+                      }break;
+                      case "Non":{
+                    	  
+                      }break;
+                  }
                   } 
             	};
             	comboActiviteePhysique.setOnAction(eventActi);
@@ -118,6 +147,14 @@ public class Main extends Application {
                   public void handle(ActionEvent e) 
                   { 
                       System.out.println(comboAntiHTA.getValue()); 
+                      switch(comboAntiHTA.getValue()) {
+                      case "Oui":{
+                    	  
+                      }break;
+                      case "Non":{
+                    	  
+                      }break;
+                  }
                   } 
             	};
             	comboAntiHTA.setOnAction(eventAntiHTA);
@@ -129,6 +166,15 @@ public class Main extends Application {
                   public void handle(ActionEvent e) 
                   { 
                       System.out.println(comboFamille.getValue()); 
+                      switch(comboFamille.getValue()) {
+                      case "Oui (grands parents, tante, oncle, cousins)":{
+                    	  
+                      }break;
+                      case "Non":{
+                    	  
+                      }break;
+                  }
+                      
                   } 
             	};
             	comboFamille.setOnAction(eventFamille);
@@ -140,6 +186,14 @@ public class Main extends Application {
                   public void handle(ActionEvent e) 
                   { 
                       System.out.println(comboGlyce.getValue()); 
+                      switch(comboGlyce.getValue()) {
+                      case "Oui":{
+                    	  
+                      }break;
+                      case "Non":{
+                    	  
+                      }break;
+                  }
                   } 
             	};
             	comboGlyce.setOnAction(eventGlyce);
@@ -151,6 +205,17 @@ public class Main extends Application {
                   public void handle(ActionEvent e) 
                   { 
                       System.out.println(comboLegumes.getValue()); 
+                      switch(comboLegumes.getValue()) {
+                      case "Non":{
+                    	  
+                      }break;
+                      case "tous les jours":{
+                    	  
+                      }break;
+                      case "Pas tous les jours":{
+                    	  
+                      }break;
+                  }
                   } 
             	};
             	comboLegumes.setOnAction(eventLegumes);
@@ -162,6 +227,7 @@ public class Main extends Application {
         
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		return page;

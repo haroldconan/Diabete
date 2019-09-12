@@ -13,7 +13,7 @@
       <ToolBar prefHeight="67.0" prefWidth="901.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <Button mnemonicParsing="false" onAction="#Accueil" text="Accueil" translateX="20.0" />
-            <Button mnemonicParsing="false"  disable="true" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
+            <Button disable="true" mnemonicParsing="false" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
             <Button mnemonicParsing="false" onAction="#Statistiques" text="Statistiques" translateX="60.0" />
         </items>
       </ToolBar>
@@ -37,21 +37,21 @@
         </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Taille : (en cm)" wrappingWidth="179.9375" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="2" />
+            <TextField fx:id="taille" GridPane.columnIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Activités physique :          (30 min/j)" wrappingWidth="172.00537109375" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACTD anti-HTA : " wrappingWidth="177.93603515625" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="5" />
+            <TextField fx:id="poids" GridPane.columnIndex="5" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poids : (en Kg)" wrappingWidth="181.4990234375" GridPane.columnIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Part de légumes vert :        (par jour)" wrappingWidth="183.208984375" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ATCD de glycémiesupérieure à la normale :" wrappingWidth="180.9892578125" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ATCD famillial :" wrappingWidth="182.85107421875" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="5" GridPane.rowIndex="4" onAction="#Valider"/>
+            <ComboBox fx:id="tourTaille" maxWidth="1.7976931348623157E308" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="actiPhysique" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="antiHTA" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox fx:id="legumes" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="..." GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="glycemi" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="..." GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="famille" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="..." GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#Valider" text="Valider" GridPane.columnIndex="5" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour de taille : (en cm)" wrappingWidth="182.408203125" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>

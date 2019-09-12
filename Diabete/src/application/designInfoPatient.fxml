@@ -43,7 +43,7 @@
                   <TextField layoutX="126.0" layoutY="252.0" prefHeight="31.0" prefWidth="346.0" promptText="Numéro de sécurité sociale" />
                   <Button layoutX="689.0" layoutY="407.0" mnemonicParsing="false" onAction="#Valider" text="Valider" />
                   <Text layoutX="126.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe : " />
-                  <ComboBox fx:id="sexe" layoutX="186.0" layoutY="179.0" prefHeight="31.0" prefWidth="126.0" promptText="Homme" />
+                  <ComboBox fx:id="sexe" layoutX="186.0" layoutY="179.0" prefHeight="31.0" prefWidth="126.0" promptText="..." />
                </children></Pane>
          </children>
       </GridPane>

@@ -44,4 +44,5 @@ public class ControllerDonneePatient {
 	     //Boîte du message d'information
 	     Main.replaceSceneContent("designResultatPatient.fxml");
 	   }
+	
 }

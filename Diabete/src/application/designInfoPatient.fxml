@@ -13,7 +13,7 @@
    <ToolBar prefHeight="67.0" prefWidth="901.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <items>
              <Button mnemonicParsing="false" onAction="#Accueil" text="Accueil" translateX="20.0" />
-               <Button mnemonicParsing="false" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
+               <Button disable="true" mnemonicParsing="false" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
                <Button mnemonicParsing="false" onAction="#Statistiques" text="Statistiques" translateX="60.0" />
            </items>
          </ToolBar>
@@ -42,11 +42,8 @@
                   <TextField layoutX="473.0" layoutY="93.0" promptText="Prénom" />
                   <TextField layoutX="126.0" layoutY="252.0" prefHeight="31.0" prefWidth="346.0" promptText="Numéro de sécurité sociale" />
                   <Button layoutX="689.0" layoutY="407.0" mnemonicParsing="false" onAction="#Valider" text="Valider" />
-                  
-                        
-                    
                   <Text layoutX="126.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe : " />
-                  <ComboBox layoutX="186.0" layoutY="179.0" prefHeight="31.0" prefWidth="126.0" promptText="Homme" />
+                  <ComboBox fx:id="sexe" layoutX="186.0" layoutY="179.0" prefHeight="31.0" prefWidth="126.0" promptText="Homme" />
                </children></Pane>
          </children>
       </GridPane>

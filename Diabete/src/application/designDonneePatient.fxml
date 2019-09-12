@@ -13,20 +13,20 @@
       <ToolBar prefHeight="67.0" prefWidth="901.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <Button mnemonicParsing="false" onAction="#Accueil" text="Accueil" translateX="20.0" />
-            <Button mnemonicParsing="false" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
+            <Button mnemonicParsing="false"  disable="true" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
             <Button mnemonicParsing="false" onAction="#Statistiques" text="Statistiques" translateX="60.0" />
         </items>
       </ToolBar>
       <Button mnemonicParsing="false" onAction="#Deconnexion" text="Déconnexion" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
       <GridPane alignment="CENTER" layoutY="67.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="67.0">
         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="161.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="166.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="161.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="166.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="78.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="161.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="166.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="161.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="166.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -51,7 +51,7 @@
             <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" text="Valider" GridPane.columnIndex="5" GridPane.rowIndex="4" onAction="#Valider"/>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour de taille : (en cm)" wrappingWidth="182.408203125" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>

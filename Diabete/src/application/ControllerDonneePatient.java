@@ -4,15 +4,14 @@ import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
 
-public class MyController {
-	
-	
+public class ControllerDonneePatient {
 	public void NouvelleEntree(ActionEvent event) {
 		System.out.println("Button Clicked!");
 	       JOptionPane jop1;
 	       
 	     //Boîte du message d'information
-	       Main.replaceSceneContent("designInfoPatient.fxml");
+	     jop1 = new JOptionPane();
+	     jop1.showMessageDialog(null, "nouvelle entree ", "C'est le titre", JOptionPane.CLOSED_OPTION);
 	}
 	public void Statistiques(ActionEvent event) {
 	       System.out.println("Button Clicked!");
@@ -28,8 +27,7 @@ public class MyController {
 	       JOptionPane jop1;
 	       
 	     //Boîte du message d'information
-	     jop1 = new JOptionPane();
-	     jop1.showMessageDialog(null, "accueil ", "C'est le titre", JOptionPane.CLOSED_OPTION);
+	       Main.replaceSceneContent("design.fxml");
 	      
 	   }
 	public void Deconnexion(ActionEvent event) {
@@ -39,5 +37,11 @@ public class MyController {
 	     //Boîte du message d'information
 	     Main.replaceSceneContent("designLog.fxml");
 	   }
-	
+	public void Valider(ActionEvent event) {
+	       System.out.println("Button Clicked!");
+	       JOptionPane jop1;
+	       
+	     //Boîte du message d'information
+	     Main.replaceSceneContent("designResultatPatient.fxml");
+	   }
 }

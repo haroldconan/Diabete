@@ -2,7 +2,12 @@ package application;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
 public class ControllerInfoPatient {
 	
@@ -20,8 +25,7 @@ public class ControllerInfoPatient {
 	       JOptionPane jop1;
 	       
 	     //Boîte du message d'information
-	     jop1 = new JOptionPane();
-	     jop1.showMessageDialog(null, "stat ", "C'est le titre", JOptionPane.CLOSED_OPTION);
+	       Main.replaceSceneContent("designStat.fxml");
 	      
 	   }
 	
@@ -30,8 +34,7 @@ public class ControllerInfoPatient {
 	       JOptionPane jop1;
 	       
 	     //Boîte du message d'information
-	     jop1 = new JOptionPane();
-	     jop1.showMessageDialog(null, "accueil ", "C'est le titre", JOptionPane.CLOSED_OPTION);
+	       Main.replaceSceneContent("design.fxml");
 	      
 	   }
 	public void Deconnexion(ActionEvent event) {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="627.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerLog">
+   <children>
+      <ToolBar prefHeight="67.0" prefWidth="901.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <Button disable="true" mnemonicParsing="false" onAction="#Accueil" text="Accueil" translateX="20.0" />
+            <Button disable="true" mnemonicParsing="false" onAction="#NouvelleEntree" text="Nouvelle entrée" translateX="40.0" />
+            <Button disable="true" mnemonicParsing="false" onAction="#Statistiques" text="Statistiques" translateX="60.0" />
+        </items>
+      </ToolBar>
+      <Button disable="true" mnemonicParsing="false" onAction="#Deconnexion" text="Déconnexion" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0" />
+      <GridPane layoutY="67.0" prefHeight="558.0" prefWidth="901.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="67.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="241.0" prefWidth="303.0" style="-fx-border-radius: 10%; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <PasswordField focusTraversable="false" layoutX="57.0" layoutY="131.0" promptText="Mot de passe" />
+                  <TextField focusTraversable="false" layoutX="57.0" layoutY="90.0" promptText="Identifiant" />
+                  <Text layoutX="89.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diabète détector">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button focusTraversable="false" layoutX="219.0" layoutY="190.0" mnemonicParsing="false" onAction="#Valider" text="Valider" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

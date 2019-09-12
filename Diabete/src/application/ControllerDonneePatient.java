@@ -50,6 +50,9 @@ public class ControllerDonneePatient {
 	      
 	       JOptionPane jop1;
 	       System.out.println(taille.getText() +" "+poids.getText());
+	       Main.donnees.setTaille(Double.parseDouble(taille.getText()));
+	       Main.donnees.setPoids(Double.parseDouble(poids.getText()));
+	       
 	     //Boîte du message d'information
 	     Main.replaceSceneContent("designResultatPatient.fxml");
 	   }

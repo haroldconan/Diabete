@@ -56,7 +56,10 @@ public class ControllerInfoPatient {
 	public void Valider(ActionEvent event) {
 	       System.out.println(Nom.getText()+" "+Prenom.getText()+" "+DateNaissance.getText()+" "+NumSecu.getText());
 	       JOptionPane jop1;
-	       
+	       Main.individu.setNom(Nom.getText());
+	       Main.individu.setNom(Prenom.getText());
+	       Main.individu.setNom(DateNaissance.getText());
+	       Main.individu.setNom(NumSecu.getText());
 	     //Boîte du message d'information
 	     Main.replaceSceneContent("designDonneePatient.fxml");
 	   }

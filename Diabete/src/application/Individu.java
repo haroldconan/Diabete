@@ -12,14 +12,16 @@ public class Individu {
 
 	// Constructeur
 
-	public Individu(int id, String nom, String prenom, Date dateNaissance, Boolean sexe, int numSecu) {
+	public Individu( String nom, String prenom, Date dateNaissance, Boolean sexe, int numSecu) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 		this.sexe = sexe;
 		this.numSecu = numSecu;
+	}
+	public Individu() {
+		super();
 	}
 
 	// Getters and Setters

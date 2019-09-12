@@ -3,8 +3,13 @@ package application;
 import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
 public class ControllerResultatPatient {
+	
+	@FXML
+	public static Text textResultat;
 	
 	public void NouvelleEntree(ActionEvent event) {
 		System.out.println("Button Clicked!");

@@ -37,6 +37,9 @@ public class Donnees {
 		Date courant = new Date();
 		this.date = courant;
 	}
+	public Donnees() {
+		super();
+	}
 
 	// Getters and Setters
 
@@ -60,7 +63,7 @@ public class Donnees {
 		return taille;
 	}
 
-	public void setTaille(float taille) {
+	public void setTaille(double taille) {
 		this.taille = taille;
 	}
 
@@ -68,7 +71,7 @@ public class Donnees {
 		return poids;
 	}
 
-	public void setPoids(float poids) {
+	public void setPoids(double poids) {
 		this.poids = poids;
 	}
 
@@ -84,7 +87,7 @@ public class Donnees {
 		return tourDeTaille;
 	}
 
-	public void setTourDeTaille(float tourDeTaille) {
+	public void setTourDeTaille(double tourDeTaille) {
 		this.tourDeTaille = tourDeTaille;
 	}
 

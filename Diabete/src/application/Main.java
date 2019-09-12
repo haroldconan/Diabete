@@ -1,11 +1,7 @@
 package application;
 	
 import java.io.IOException;
-
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,13 +27,18 @@ public class Main extends Application {
 	private static ComboBox<String> comboFamille;
 	
 	
-	static ObservableList<String> listTourTaille = FXCollections.observableArrayList("<94", "94-102",">102");
+	static ObservableList<String> listTourTailleH = FXCollections.observableArrayList("<94", "94-102",">102");
 	static ObservableList<String> listSexe = FXCollections.observableArrayList("Homme", "Femme");
 	static ObservableList<String> listActiviteePhysique = FXCollections.observableArrayList("Oui","Non");
 	static ObservableList<String> listAntiHTA = FXCollections.observableArrayList("Non","Oui");
 	static ObservableList<String> listLegumes = FXCollections.observableArrayList("Non", "Tous les jours","Pas tous les jours");
 	static ObservableList<String> listGlycee = FXCollections.observableArrayList("Non","Oui");
 	static ObservableList<String> listFamille = FXCollections.observableArrayList("Non","Oui (grands parents, tante, oncle, cousins)");
+	static ObservableList<String> listTourTailleF = FXCollections.observableArrayList("<80","80-88",">88");
+	
+	public static Individu individu = new Individu();
+	public static Donnees donnees = new Donnees();
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -86,10 +87,10 @@ public class Main extends Application {
                       System.out.println(comboSexe.getValue()); 
                       switch(comboSexe.getValue()) {
 	                      case "Homme":{
-	                    	  
+	                    	  individu.setSexe(true);
 	                      }break;
 	                      case "Femme":{
-	                    	  
+	                    	  individu.setSexe(false);
 	                      }break;
                       }
                   } 
@@ -99,26 +100,51 @@ public class Main extends Application {
             }
             if(fxml.equals("designDonneePatient.fxml")) {
             	comboTourTaille = (ComboBox<String>) scene.lookup("#tourTaille");
-            	comboTourTaille.setItems(listTourTaille);
-            	EventHandler<ActionEvent> eventTourTaille = 
-                        new EventHandler<ActionEvent>() { 
-                  public void handle(ActionEvent e) 
-                  { 
-                      System.out.println(comboTourTaille.getValue()); 
-                      switch(comboTourTaille.getValue()) {
-                      case "<94":{
-                    	  
-                      }break;
-                      case "94-102":{
-                    	  
-                      }break;
-                      case ">102":{
-                    	  
+            	if(individu.getSexe()) {
+            		comboTourTaille.setItems(listTourTailleH);
+                	EventHandler<ActionEvent> eventTourTaille = 
+                            new EventHandler<ActionEvent>() { 
+                      public void handle(ActionEvent e) 
+                      { 
+                          System.out.println(comboTourTaille.getValue()); 
+                          switch(comboTourTaille.getValue()) {
+                          case "<94":{
+                        	  donnees.setTourDeTaille(80);
+                          }break;
+                          case "94-102":{
+                        	  donnees.setTourDeTaille(100);
+                          }break;
+                          case ">102":{
+                        	  donnees.setTourDeTaille(110);
+                          }
                       }
-                  }
-                  } 
-            	};
-            	comboSexe.setOnAction(eventTourTaille);
+                      } 
+                	};
+                	comboSexe.setOnAction(eventTourTaille);
+            	}else {
+            		comboTourTaille.setItems(listTourTailleF);
+                	EventHandler<ActionEvent> eventTourTaille = 
+                            new EventHandler<ActionEvent>() { 
+                      public void handle(ActionEvent e) 
+                      { 
+                          System.out.println(comboTourTaille.getValue()); 
+                          switch(comboTourTaille.getValue()) {
+                          case "<80":{
+                        	  donnees.setTourDeTaille(70);
+                          }break;
+                          case "80-88":{
+                        	  donnees.setTourDeTaille(85);
+                          }break;
+                          case ">88":{
+                        	  donnees.setTourDeTaille(90);
+                          }
+                      }
+                      } 
+                	};
+                	comboSexe.setOnAction(eventTourTaille);
+            	}
+            	
+            	
             	
             	
             	comboActiviteePhysique = (ComboBox<String>) scene.lookup("#actiPhysique");
@@ -130,10 +156,10 @@ public class Main extends Application {
                       System.out.println(comboActiviteePhysique.getValue());
                       switch(comboActiviteePhysique.getValue()) {
                       case "Oui":{
-                    	  
+                    	  donnees.setActPhysique(true);
                       }break;
                       case "Non":{
-                    	  
+                    	  donnees.setActPhysique(false);
                       }break;
                   }
                   } 
@@ -149,10 +175,10 @@ public class Main extends Application {
                       System.out.println(comboAntiHTA.getValue()); 
                       switch(comboAntiHTA.getValue()) {
                       case "Oui":{
-                    	  
+                    	  donnees.setAtcdAntiHTA(true);
                       }break;
                       case "Non":{
-                    	  
+                    	  donnees.setActPhysique(false);
                       }break;
                   }
                   } 
@@ -168,10 +194,10 @@ public class Main extends Application {
                       System.out.println(comboFamille.getValue()); 
                       switch(comboFamille.getValue()) {
                       case "Oui (grands parents, tante, oncle, cousins)":{
-                    	  
+                    	  donnees.setAtcdFamille(true);
                       }break;
                       case "Non":{
-                    	  
+                    	  donnees.setAtcdFamille(false);
                       }break;
                   }
                       
@@ -188,10 +214,10 @@ public class Main extends Application {
                       System.out.println(comboGlyce.getValue()); 
                       switch(comboGlyce.getValue()) {
                       case "Oui":{
-                    	  
+                    	  donnees.setAtcdGlycemie(true);
                       }break;
                       case "Non":{
-                    	  
+                    	  donnees.setAtcdGlycemie(false);
                       }break;
                   }
                   } 
@@ -207,19 +233,22 @@ public class Main extends Application {
                       System.out.println(comboLegumes.getValue()); 
                       switch(comboLegumes.getValue()) {
                       case "Non":{
-                    	  
+                    	  donnees.setLegumeVert(2);
                       }break;
                       case "tous les jours":{
-                    	  
+                    	  donnees.setLegumeVert(0);
                       }break;
                       case "Pas tous les jours":{
-                    	  
+                    	  donnees.setLegumeVert(1);
                       }break;
                   }
                   } 
             	};
             	comboLegumes.setOnAction(eventLegumes);
             	
+            	
+            }
+            if(fxml.equals("designResultatPatient")) {
             	
             }
         }

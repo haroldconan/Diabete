@@ -1,4 +1,4 @@
-package diabet;
+package application;
 
 import java.util.Date;
 

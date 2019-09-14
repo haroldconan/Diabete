@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
@@ -57,10 +59,11 @@ public class ControllerInfoPatient {
 	       System.out.println(Nom.getText()+" "+Prenom.getText()+" "+DateNaissance.getText()+" "+NumSecu.getText());
 	       JOptionPane jop1;
 	       Main.individu.setNom(Nom.getText());
-	       Main.individu.setNom(Prenom.getText());
-	       Main.individu.setNom(DateNaissance.getText());
-	       Main.individu.setNom(NumSecu.getText());
+	       Main.individu.setPrenom(Prenom.getText());
+	       Main.individu.setDateNaissance(new Date(DateNaissance.getText()));
+	       Main.individu.setNumSecu(Long.parseLong(NumSecu.getText()));
 	     //Boîte du message d'information
+	       System.out.println("tout :\n"+Main.individu.getId()+"\n"+Main.individu.getNom()+"\n"+Main.individu.getNumSecu()+"\n"+Main.individu.getPrenom()+"\n"+Main.individu.getDateNaissance()+"\n"+Main.individu.getSexe()+"\n"+Main.donnees.getAge()+"\n"+Main.donnees.getId()+"\n"+Main.donnees.getIdIndividu()+"\n"+Main.donnees.getLegumeVert()+"\n"+Main.donnees.getPoids()+"\n"+Main.donnees.getTaille()+"\n"+Main.donnees.getTourDeTaille());
 	     Main.replaceSceneContent("designDonneePatient.fxml");
 	   }
 }

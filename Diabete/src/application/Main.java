@@ -14,17 +14,18 @@ import javafx.stage.WindowEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.text.Text;
 
 
 public class Main extends Application {
 	private static Stage stage;
 	private static ComboBox<String> comboSexe;
-	private static ComboBox<String> comboTourTaille;
 	private static ComboBox<String> comboActiviteePhysique;
 	private static ComboBox<String> comboAntiHTA;
 	private static ComboBox<String> comboLegumes;
 	private static ComboBox<String> comboGlyce;
 	private static ComboBox<String> comboFamille;
+	private static Text textResultat;
 	
 	
 	static ObservableList<String> listTourTailleH = FXCollections.observableArrayList("<94", "94-102",">102");
@@ -99,53 +100,6 @@ public class Main extends Application {
             	
             }
             if(fxml.equals("designDonneePatient.fxml")) {
-            	comboTourTaille = (ComboBox<String>) scene.lookup("#tourTaille");
-            	if(individu.getSexe()) {
-            		comboTourTaille.setItems(listTourTailleH);
-                	EventHandler<ActionEvent> eventTourTaille = 
-                            new EventHandler<ActionEvent>() { 
-                      public void handle(ActionEvent e) 
-                      { 
-                          System.out.println(comboTourTaille.getValue()); 
-                          switch(comboTourTaille.getValue()) {
-                          case "<94":{
-                        	  donnees.setTourDeTaille(80);
-                          }break;
-                          case "94-102":{
-                        	  donnees.setTourDeTaille(100);
-                          }break;
-                          case ">102":{
-                        	  donnees.setTourDeTaille(110);
-                          }
-                      }
-                      } 
-                	};
-                	comboSexe.setOnAction(eventTourTaille);
-            	}else {
-            		comboTourTaille.setItems(listTourTailleF);
-                	EventHandler<ActionEvent> eventTourTaille = 
-                            new EventHandler<ActionEvent>() { 
-                      public void handle(ActionEvent e) 
-                      { 
-                          System.out.println(comboTourTaille.getValue()); 
-                          switch(comboTourTaille.getValue()) {
-                          case "<80":{
-                        	  donnees.setTourDeTaille(70);
-                          }break;
-                          case "80-88":{
-                        	  donnees.setTourDeTaille(85);
-                          }break;
-                          case ">88":{
-                        	  donnees.setTourDeTaille(90);
-                          }
-                      }
-                      } 
-                	};
-                	comboSexe.setOnAction(eventTourTaille);
-            	}
-            	
-            	
-            	
             	
             	comboActiviteePhysique = (ComboBox<String>) scene.lookup("#actiPhysique");
             	comboActiviteePhysique.setItems(listActiviteePhysique);
@@ -248,15 +202,22 @@ public class Main extends Application {
             	
             	
             }
-            if(fxml.equals("designResultatPatient")) {
-            	
+            if(fxml.equals("designResultatPatient")) {System.out.println("oui");
+            	try {
+            		textResultat= (Text) scene.lookup("#textResultat");
+            		System.out.println(textResultat);
+            		textResultat.setText(donnees.toString(donnees.calculResultat(individu.getSexe())));
+            	}catch (Exception e) {
+					// TODO: handle exception
+            		System.out.println("ResultatMain"+e.getMessage());
+				}
             }
         }
         
         
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			System.out.println("LesControlMain"+e.getMessage());
 			e.printStackTrace();
 		}
 		return page;

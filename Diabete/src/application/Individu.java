@@ -8,11 +8,11 @@ public class Individu {
 	private String prenom;
 	private Date dateNaissance;
 	private Boolean sexe;
-	private int numSecu;
+	private long numSecu;
 
 	// Constructeur
 
-	public Individu( String nom, String prenom, Date dateNaissance, Boolean sexe, int numSecu) {
+	public Individu( String nom, String prenom, Date dateNaissance, Boolean sexe, long numSecu) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -66,11 +66,11 @@ public class Individu {
 		this.sexe = sexe;
 	}
 
-	public int getNumSecu() {
+	public long getNumSecu() {
 		return numSecu;
 	}
 
-	public void setNumSecu(int numSecu) {
+	public void setNumSecu(long numSecu) {
 		this.numSecu = numSecu;
 	}
 	

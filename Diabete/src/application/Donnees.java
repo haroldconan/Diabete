@@ -159,7 +159,7 @@ public class Donnees {
 
 		// Mise à jour de la date de naissance en fonction du paramètre d'entrée
 		naissance.setTime(dateNaissance);
-
+		
 		// Verification que la date de naissance n'est pas supérieur à la date
 		// d'aujourd'hui.
 		if (naissance.get(Calendar.YEAR) > courant.get(Calendar.YEAR)) {
@@ -175,8 +175,7 @@ public class Donnees {
 	// Fonction qui calcul le score du diabète dans les 10 ans
 	// Entrée : Double*3, Entier*2, boolean*5
 	// Sortie : Entier
-	public int calculResultat(double taille, double poids, int age, double tourDeTaille, boolean sexe, boolean actPhy,
-			int legumeVert, boolean atcdAntiHTA, boolean atcdFamille, boolean atcdGlycemie) throws Exception {
+	public int calculResultat(boolean sexe) throws Exception {
 		int resultat = 0;
 
 		// Vérification que la taille, le poids et le tour de taille n'ont pas des
@@ -192,7 +191,7 @@ public class Donnees {
 		// Calcul du score concernant le tour de taille.
 		resultat = resultatTourDeTaille(tourDeTaille, sexe, resultat);
 		// Calcul du score concernant l'activité physique.
-		resultat = resultatActPhy(actPhy, resultat);
+		resultat = resultatActPhy(actPhysique, resultat);
 		// Calcul du score concernant les légumes verts.
 		resultat = resultatLegumeVert(legumeVert, resultat);
 		// Calcul du score concernant les antécédent

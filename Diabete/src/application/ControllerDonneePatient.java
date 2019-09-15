@@ -3,6 +3,7 @@ package application;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
@@ -69,7 +70,8 @@ public class ControllerDonneePatient {
 	       Alert alert = new Alert(AlertType.INFORMATION);
 	       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
 	       alert.setHeaderText("Numéro de sécurité sociale :" + Main.individu.getNumSecu());
-	       alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))+"\n"+"tout :\n"+"Id : "+Main.individu.getId()+"\n"+"Nom :"+Main.individu.getNom()+"\n"+Main.individu.getNumSecu()+"\n"+Main.individu.getPrenom()+"\n"+Main.individu.getDateNaissance()+"\n"+Main.individu.getSexe()+"\n"+Main.donnees.getAge()+"\n"+Main.donnees.getId()+"\n"+Main.donnees.getIdIndividu()+"\n"+Main.donnees.getLegumeVert()+"\n"+Main.donnees.getPoids()+"\n"+Main.donnees.getTaille()+"\n"+Main.donnees.getTourDeTaille());
+	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+	       alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))+"\n"+"tout sur :\n"+"Id : "+Main.individu.getId()+"\n"+"Nom :"+Main.individu.getNom()+" Prénom : "+Main.individu.getPrenom()+"\nNuméro de sécurité sociale : "+Main.individu.getNumSecu()+"\nDate de naissance : "+formater.format(Main.individu.getDateNaissance())+"\nSexe : "+Main.individu.getSexe()+"\nAge : "+Main.donnees.getAge()+"\n\n\tDonnées du patient : \nId : "+Main.donnees.getId()+"Id Individue : "+Main.donnees.getIdIndividu()+"\nPortiont de légume vert : "+Main.donnees.getLegumeVert()+"\nPoids : "+Main.donnees.getPoids()+" Taille : "+Main.donnees.getTaille()+" Tour de Taille : "+Main.donnees.getTourDeTaille()+"\n30 min 'activitée phyisique : "+Main.donnees.isActPhysique()+"\nAntécédent Anti-HTA : "+Main.donnees.isAtcdAntiHTA()+"\nAntécédent Familliale : "+Main.donnees.isAtcdFamille()+"\nAntécédent Glycémique : "+Main.donnees.isAtcdGlycemie());
 		   alert.showAndWait();
 		   Main.replaceSceneContent("design.fxml");
 		}catch (Exception e) {

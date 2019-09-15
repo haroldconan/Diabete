@@ -1,6 +1,9 @@
 package application;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -9,8 +12,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class ControllerInfoPatient {
@@ -58,6 +63,82 @@ public class ControllerInfoPatient {
 	public void Valider(ActionEvent event) {
 	       System.out.println(Nom.getText()+" "+Prenom.getText()+" "+DateNaissance.getText()+" "+NumSecu.getText());
 	       JOptionPane jop1;
+	       if(Nom.getText().equals(null)) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Erreur !");
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Nom' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }
+	       else {
+	    	   Pattern p = Pattern.compile("(a-Z)");
+		    	// création d'un moteur de recherche
+		    	Matcher m = p.matcher(Nom.getText());
+		    	// lancement de la recherche de toutes les occurrences
+		    	boolean b = m.matches();
+	    	   if(!b) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Erreur !");
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'Nom' ne doit contenir que des lettres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
+	       if(Prenom.getText().equals(null)) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Erreur !");
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Prenom' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }
+	       else {
+	    	   Pattern p = Pattern.compile("(a-Z)");
+		    	// création d'un moteur de recherche
+		    	Matcher m = p.matcher(Prenom.getText());
+		    	// lancement de la recherche de toutes les occurrences
+		    	boolean b = m.matches();
+	    	   if(!b) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Erreur !");
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'Prenom' ne doit contenir que des lettres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
+	       if(DateNaissance.getText().equals(null)) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Nom' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }else {
+	    	   Pattern p = Pattern.compile("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
+		    	// création d'un moteur de recherche
+		    	Matcher m = p.matcher(Prenom.getText());
+		    	// lancement de la recherche de toutes les occurrences
+		    	boolean b = m.matches();
+	    	   if(!b) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Erreur !");
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'Date de naissance' doit être au format jj/mm/aaaa");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
+	       if(NumSecu.getText().equals(null)) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Nom' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }
 	       Main.individu.setNom(Nom.getText());
 	       Main.individu.setPrenom(Prenom.getText());
 	       Main.individu.setDateNaissance(new Date(DateNaissance.getText()));

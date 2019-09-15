@@ -95,7 +95,7 @@ public class ControllerInfoPatient {
 	    	   return;
 	       }
 	       else {
-	    	   Pattern p = Pattern.compile("(a-Z)");
+	    	   Pattern p = Pattern.compile("(A-z)");
 		    	// création d'un moteur de recherche
 		    	Matcher m = p.matcher(Prenom.getText());
 		    	// lancement de la recherche de toutes les occurrences

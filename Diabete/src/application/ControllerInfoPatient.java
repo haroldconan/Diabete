@@ -75,8 +75,8 @@ public class ControllerInfoPatient {
 			       alert.setContentText("Le champs 'Nom' ne doit contenir que des lettres");
 				   alert.showAndWait();
 		    	   return;
-	    	   }
-	       }
+	    	   }//test git
+	       }//test git
 	       if(Prenom.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Erreur !");

@@ -52,8 +52,8 @@ public class ControllerDonneePatient {
 	   }
 	public void Valider(ActionEvent event) {
 		try {
-	 
-	       
+	 //test git
+			//test git//test git
 	       if(taille.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());

@@ -133,7 +133,7 @@ public class ControllerInfoPatient {
 				   alert.showAndWait();
 		    	   return;
 	    	   }
-	       }
+	       }//s
 	       Main.individu.setNom(Nom.getText());
 	       Main.individu.setPrenom(Prenom.getText());
 	       Main.individu.setDateNaissance(new Date(DateNaissance.getText()));

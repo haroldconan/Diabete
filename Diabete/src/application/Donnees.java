@@ -293,6 +293,23 @@ public class Donnees {
 		return resultat;
 	}
 
+	
+	public void addDonnees(Donnees donnees, Individu individu) {
+		String query = "";
+		query += "INSERT INTO Donnees (idIndividu, taille, poids, age, tourTaille, actPhy, atcdAntiHTA, atcdFamille, atcdGlycemie, legVert, resultat, date) VALUES (";
+		query += individu.getId() + ", ";
+		query += donnees.getTaille() + ", ";
+		query += donnees.getPoids() + ", ";
+		query += donnees.getAge() + ", ";
+		query += donnees.getTourDeTaille() + ", ";
+		query += donnees.isActPhysique() + ", ";
+		query += donnees.isAtcdAntiHTA() + ", ";
+		query += donnees.isAtcdFamille() + ", ";
+		query += donnees.isAtcdGlycemie() + ", ";
+		query += donnees.getLegumeVert() + ", ";
+		query += donnees.getResultat() + ", ";
+		query += donnees.getDate() + "' )";
+	}
 	// toString
 	
 	public String toString(int resulat) {

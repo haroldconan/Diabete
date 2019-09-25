@@ -1,22 +1,17 @@
 package application;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
 public class ControllerInfoPatient {
 	@FXML
@@ -136,7 +131,10 @@ public class ControllerInfoPatient {
 	       }//
 	       Main.individu.setNom(Nom.getText());
 	       Main.individu.setPrenom(Prenom.getText());
-	       Main.individu.setDateNaissance(new Date(DateNaissance.getText()));
+	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
+	       SimpleDateFormat formaterEN = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+	       Date dateEn = new Date(formaterEN.format(new Date(DateNaissance.getText())));
+	       Main.individu.setDateNaissance(dateEn);
 	       Main.individu.setNumSecu(Long.parseLong(NumSecu.getText()));
 	     //Boîte du message d'information
 	       System.out.println("tout :\n"+Main.individu.getId()+"\n"+Main.individu.getNom()+"\n"+Main.individu.getNumSecu()+"\n"+Main.individu.getPrenom()+"\n"+Main.individu.getDateNaissance()+"\n"+Main.individu.getSexe()+"\n"+Main.donnees.getAge()+"\n"+Main.donnees.getId()+"\n"+Main.donnees.getIdIndividu()+"\n"+Main.donnees.getLegumeVert()+"\n"+Main.donnees.getPoids()+"\n"+Main.donnees.getTaille()+"\n"+Main.donnees.getTourDeTaille());

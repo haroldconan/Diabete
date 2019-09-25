@@ -1,9 +1,7 @@
 package application;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
@@ -11,11 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
 public class ControllerDonneePatient {
 	
@@ -70,7 +64,7 @@ public class ControllerDonneePatient {
 	       Alert alert = new Alert(AlertType.INFORMATION);
 	       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
 	       alert.setHeaderText("Numéro de sécurité sociale :" + Main.individu.getNumSecu());
-	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 	       alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))+"\n"+"tout sur :\n"+"Id : "+Main.individu.getId()+"\n"+"Nom :"+Main.individu.getNom()+" Prénom : "+Main.individu.getPrenom()+"\nNuméro de sécurité sociale : "+Main.individu.getNumSecu()+"\nDate de naissance : "+formater.format(Main.individu.getDateNaissance())+"\nSexe : "+Main.individu.getSexe()+"\nAge : "+Main.donnees.getAge()+"\n\n\tDonnées du patient : \nId : "+Main.donnees.getId()+"Id Individue : "+Main.donnees.getIdIndividu()+"\nPortiont de légume vert : "+Main.donnees.getLegumeVert()+"\nPoids : "+Main.donnees.getPoids()+" Taille : "+Main.donnees.getTaille()+" Tour de Taille : "+Main.donnees.getTourDeTaille()+"\n30 min 'activitée phyisique : "+Main.donnees.isActPhysique()+"\nAntécédent Anti-HTA : "+Main.donnees.isAtcdAntiHTA()+"\nAntécédent Familliale : "+Main.donnees.isAtcdFamille()+"\nAntécédent Glycémique : "+Main.donnees.isAtcdGlycemie());
 		   alert.showAndWait();//d
 		   Main.replaceSceneContent("design.fxml");

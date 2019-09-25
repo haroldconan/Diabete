@@ -72,12 +72,8 @@ public class ControllerInfoPatient {
 	    	   return;
 	       }
 	       else {
-	    	   Pattern p = Pattern.compile("(a-Z)");
-		    	// création d'un moteur de recherche
-		    	Matcher m = p.matcher(Nom.getText());
-		    	// lancement de la recherche de toutes les occurrences
-		    	boolean b = m.matches();
-	    	   if(!b) {
+		    	System.out.println("\tRésultat match : "+Nom.getText().matches("[a-zA-Z]"));
+	    	   if(!Nom.getText().matches("[a-zA-Z]*")) {
 	    		   Alert alert = new Alert(AlertType.ERROR);
 			       alert.setTitle("Erreur !");
 			       alert.setHeaderText("Erreur de complétion de texte :");
@@ -95,12 +91,7 @@ public class ControllerInfoPatient {
 	    	   return;
 	       }
 	       else {
-	    	   Pattern p = Pattern.compile("(A-z)");
-		    	// création d'un moteur de recherche
-		    	Matcher m = p.matcher(Prenom.getText());
-		    	// lancement de la recherche de toutes les occurrences
-		    	boolean b = m.matches();
-	    	   if(!b) {
+	    	   if(!Prenom.getText().matches("[a-zA-Z]*")) {
 	    		   Alert alert = new Alert(AlertType.ERROR);
 			       alert.setTitle("Erreur !");
 			       alert.setHeaderText("Erreur de complétion de texte :");
@@ -117,12 +108,7 @@ public class ControllerInfoPatient {
 			   alert.showAndWait();
 	    	   return;
 	       }else {
-	    	   Pattern p = Pattern.compile("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
-		    	// création d'un moteur de recherche
-		    	Matcher m = p.matcher(Prenom.getText());
-		    	// lancement de la recherche de toutes les occurrences
-		    	boolean b = m.matches();
-	    	   if(!b) {
+	    	   if(!DateNaissance.getText().matches("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$")) {
 	    		   Alert alert = new Alert(AlertType.ERROR);
 			       alert.setTitle("Erreur !");
 			       alert.setHeaderText("Erreur de complétion de texte :");
@@ -135,9 +121,18 @@ public class ControllerInfoPatient {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
 		       alert.setHeaderText("Erreur de complétion de texte :");
-		       alert.setContentText("Le champs 'Nom' est incomplet");
+		       alert.setContentText("Le champs 'Numérau de sécurité sociale' est incomplet");
 			   alert.showAndWait();
 	    	   return;
+	       }else {
+	    	   if(!NumSecu.getText().matches("[0-9]{13}")) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'Numérau de sécurité sociale' ne doit contenir que les 13 chiffres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
 	       }
 	       Main.individu.setNom(Nom.getText());
 	       Main.individu.setPrenom(Prenom.getText());

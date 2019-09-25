@@ -52,9 +52,63 @@ public class ControllerDonneePatient {
 	   }
 	public void Valider(ActionEvent event) {
 		try {
-	       System.out.println(taille.getText() +" "+poids.getText());
+	 
+	       
+	       if(taille.getText().equals("")) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Taille' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }else {
+	    	   if(!taille.getText().matches("[0-9]*")) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'Taille' ne doit contenir que des chiffres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
 	       Main.donnees.setTaille(Double.parseDouble(taille.getText()));
+	       
+	       if(poids.getText().equals("")) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'poids' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }else {
+	    	   if(!poids.getText().matches("[0-9]*")) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'poids' ne doit contenir que des chiffres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
 	       Main.donnees.setPoids(Double.parseDouble(poids.getText()));
+	       
+	       if(tourTaille.getText().equals("")) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'tourTaille' est incomplet");
+			   alert.showAndWait();
+	    	   return;
+	       }else {
+	    	   if(!tourTaille.getText().matches("[0-9]*")) {
+	    		   Alert alert = new Alert(AlertType.ERROR);
+			       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
+			       alert.setHeaderText("Erreur de complétion de texte :");
+			       alert.setContentText("Le champs 'tourTaille' ne doit contenir que des chiffres");
+				   alert.showAndWait();
+		    	   return;
+	    	   }
+	       }
 	       Main.donnees.setAge(Main.donnees.calculAge(Main.individu.getDateNaissance()));
 	       Main.donnees.setTourDeTaille(Double.parseDouble(tourTaille.getText()));
 	       
@@ -71,6 +125,6 @@ public class ControllerDonneePatient {
 		}catch (Exception e) {
 			System.out.println("ControllerDonnee"+e.getMessage());
 		}
-	   }
-	
+	       
+	}    
 }

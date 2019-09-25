@@ -58,7 +58,7 @@ public class ControllerInfoPatient {
 	public void Valider(ActionEvent event) {
 	       System.out.println(Nom.getText()+" "+Prenom.getText()+" "+DateNaissance.getText()+" "+NumSecu.getText());
 	       JOptionPane jop1;
-	       if(Nom.getText().equals(null)) {
+	       if(Nom.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Erreur !");
 		       alert.setHeaderText("Erreur de complétion de texte :");
@@ -77,7 +77,7 @@ public class ControllerInfoPatient {
 		    	   return;
 	    	   }
 	       }
-	       if(Prenom.getText().equals(null)) {
+	       if(Prenom.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Erreur !");
 		       alert.setHeaderText("Erreur de complétion de texte :");
@@ -95,11 +95,11 @@ public class ControllerInfoPatient {
 		    	   return;
 	    	   }
 	       }
-	       if(DateNaissance.getText().equals(null)) {
+	       if(DateNaissance.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
 		       alert.setHeaderText("Erreur de complétion de texte :");
-		       alert.setContentText("Le champs 'Nom' est incomplet");
+		       alert.setContentText("Le champs 'Date de naissance' est incomplet");
 			   alert.showAndWait();
 	    	   return;
 	       }else {
@@ -112,7 +112,7 @@ public class ControllerInfoPatient {
 		    	   return;
 	    	   }
 	       }
-	       if(NumSecu.getText().equals(null)) {
+	       if(NumSecu.getText().equals("")) {
 	    	   Alert alert = new Alert(AlertType.ERROR);
 		       alert.setTitle("Resulat pour : "+Main.individu.getNom()+" "+Main.individu.getPrenom());
 		       alert.setHeaderText("Erreur de complétion de texte :");
@@ -129,15 +129,22 @@ public class ControllerInfoPatient {
 		    	   return;
 	    	   }
 	       }//
+	       try {
 	       Main.individu.setNom(Nom.getText());
 	       Main.individu.setPrenom(Prenom.getText());
 	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
-	       SimpleDateFormat formaterEN = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
-	       Date dateEn = new Date(formaterEN.format(new Date(DateNaissance.getText())));
-	       Main.individu.setDateNaissance(dateEn);
+	       Main.individu.setDateNaissance(formater.parse(DateNaissance.getText()));
 	       Main.individu.setNumSecu(Long.parseLong(NumSecu.getText()));
 	     //Boîte du message d'information
 	       System.out.println("tout :\n"+Main.individu.getId()+"\n"+Main.individu.getNom()+"\n"+Main.individu.getNumSecu()+"\n"+Main.individu.getPrenom()+"\n"+Main.individu.getDateNaissance()+"\n"+Main.individu.getSexe()+"\n"+Main.donnees.getAge()+"\n"+Main.donnees.getId()+"\n"+Main.donnees.getIdIndividu()+"\n"+Main.donnees.getLegumeVert()+"\n"+Main.donnees.getPoids()+"\n"+Main.donnees.getTaille()+"\n"+Main.donnees.getTourDeTaille());
 	     Main.replaceSceneContent("designDonneePatient.fxml");
+	       }catch(Exception ex) {
+	    	   Alert alert = new Alert(AlertType.ERROR);
+		       alert.setTitle("DATE");
+		       alert.setHeaderText("Erreur de complétion de texte :");
+		       alert.setContentText("Le champs 'Date' doit être au format jj/MM/aaaa");
+			   alert.showAndWait();
+	    	   return;
+	       }
 	   }
 }

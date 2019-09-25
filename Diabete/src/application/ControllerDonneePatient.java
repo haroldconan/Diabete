@@ -72,7 +72,7 @@ public class ControllerDonneePatient {
 	       alert.setHeaderText("Numéro de sécurité sociale :" + Main.individu.getNumSecu());
 	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 	       alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))+"\n"+"tout sur :\n"+"Id : "+Main.individu.getId()+"\n"+"Nom :"+Main.individu.getNom()+" Prénom : "+Main.individu.getPrenom()+"\nNuméro de sécurité sociale : "+Main.individu.getNumSecu()+"\nDate de naissance : "+formater.format(Main.individu.getDateNaissance())+"\nSexe : "+Main.individu.getSexe()+"\nAge : "+Main.donnees.getAge()+"\n\n\tDonnées du patient : \nId : "+Main.donnees.getId()+"Id Individue : "+Main.donnees.getIdIndividu()+"\nPortiont de légume vert : "+Main.donnees.getLegumeVert()+"\nPoids : "+Main.donnees.getPoids()+" Taille : "+Main.donnees.getTaille()+" Tour de Taille : "+Main.donnees.getTourDeTaille()+"\n30 min 'activitée phyisique : "+Main.donnees.isActPhysique()+"\nAntécédent Anti-HTA : "+Main.donnees.isAtcdAntiHTA()+"\nAntécédent Familliale : "+Main.donnees.isAtcdFamille()+"\nAntécédent Glycémique : "+Main.donnees.isAtcdGlycemie());
-		   alert.showAndWait();
+		   alert.showAndWait();//d
 		   Main.replaceSceneContent("design.fxml");
 		}catch (Exception e) {
 			System.out.println("ControllerDonnee"+e.getMessage());

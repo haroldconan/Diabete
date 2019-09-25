@@ -74,6 +74,18 @@ public class Individu {
 		this.numSecu = numSecu;
 	}
 	
+	//
+	
+	public void addIndividu(Individu individu) {
+		String query = "";
+		query += "INSERT INTO Individu (nom, prenom, dateNaissance, sexe, numSecu) VALUES (";
+		query += individu.getNom() + ", ";
+		query += individu.getPrenom() + ", ";
+		query += individu.getDateNaissance() + ", ";
+		query += individu.getSexe() + ", ";
+		query += individu.getNumSecu() + "' )";
+	}
+	
 	//toString
 	
 	@Override

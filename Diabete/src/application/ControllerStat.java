@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,16 +26,22 @@ public class ControllerStat implements Initializable {
 	private CategoryAxis AxeX;
 
 	@FXML
-	private BarChart<?, ?> GraphStat;
+	private BarChart<Number,String> GraphStat;
 	@FXML
-	private TableView<?> TableauIndividue;
+	private TableView<Individu> TableauIndividu;
 	@FXML
-	private TableColumn<?, ?> ColSecu;
+	private TableColumn<Individu, Long> ColSecu;
 	@FXML
-	private TableColumn<?, ?> ColNom;
+	private TableColumn<Individu, String> ColNom;
 
 	@FXML
-	private TableColumn<?, ?> ColPrenom;
+	private TableColumn<Individu, String> ColPrenom;
+	
+    @FXML
+    private TableColumn<Individu, Date> ColNaissance;
+
+    @FXML
+    private TableColumn<Individu, Integer> ColSexe;
 
 	public void NouvelleEntree(ActionEvent event) {
 		System.out.println("Button Clicked!");
@@ -83,33 +91,35 @@ public class ControllerStat implements Initializable {
 
 		XYChart.Series set2 = GetStat("");
 		set2.setName("Pourcentage de patients Femme");
-		GraphStat.setVisible(true);
-		TableauIndividue.setVisible(false);
 		GraphStat.getData().addAll(set1);
 		GraphStat.getData().addAll(set2);
 		// FIN PARTIE GRAPH
-
+		GraphStat.setVisible(true);
+		TableauIndividu.setVisible(false);
 	}
 
 	@FXML
 	void BTlistIndiviue(ActionEvent event) {
 		GraphStat.setVisible(false);
-		TableauIndividue.setVisible(true);
+		TableauIndividu.setVisible(true);
 		ColNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
 		ColPrenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
 		ColSecu.setCellValueFactory(new PropertyValueFactory<>("numSecu"));
-		long secu = Long.parseLong("88888888888888");
-		Item indi1 = new Item(new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu));
-		Item indi2 = new Item(new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu));
-		Item indi3 = new Item(new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu));
-		Item indi4 = new Item(new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu));
-		
-		 TableauIndividue.setRoot(indi1);
+		ColNaissance.setCellValueFactory(new PropertyValueFactory<>("dateNaissance"));
+		ColSexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
+		ObservableList<Individu> listIndi = getIndividuList();
+		for(int indi = 0; indi < listIndi.size();indi++) {
+			if(listIndi.get(indi).getSexe()) {
+				ColSexe.getCellData(indi);
+			}
+		}
+		TableauIndividu.setItems(listIndi);
 	}
 
 	@FXML
 	void BTGraphSexe(ActionEvent event) {
-
+		GraphStat.setVisible(true);
+		TableauIndividu.setVisible(false);
 	}
 
 	@FXML
@@ -134,5 +144,15 @@ public class ControllerStat implements Initializable {
 		serieBDD.getData().add(new XYChart.Data("Risque de 50%", 15));
 
 		return serieBDD;
+	}
+
+	private ObservableList<Individu> getIndividuList() {
+		long secu = Long.parseLong("8888888888888");
+		Individu indi1 = new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu);
+		Individu indi2 = new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu);
+		Individu indi3 = new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu);
+		Individu indi4 = new Individu("CONAN", "Harold", new Date("28/04/1999"), true, secu);
+		ObservableList<Individu> list = FXCollections.observableArrayList(indi1, indi2, indi3, indi4);
+		return list;
 	}
 }

@@ -48,15 +48,17 @@
                       <NumberAxis fx:id="AxeY" label="Pourcentage de population" side="LEFT" />
                     </yAxis>
                   </BarChart>
-                  <TableView fx:id="TableauIndividue" layoutY="-1.0" prefHeight="450.0" prefWidth="800.0">
-                    <columns>
-                      <TableColumn fx:id="ColNom" prefWidth="222.0" text="Nom" />
-                      <TableColumn fx:id="ColPrenom" prefWidth="224.0" text="Prénom" />
-                        <TableColumn fx:id="ColSecu" minWidth="0.0" prefWidth="353.0" text="Numéro de sécurité sociale" />
-                    </columns>
-                  </TableView>
                </children></Pane>
          </children>
       </GridPane>
+      <TableView fx:id="TableauIndividu" prefHeight="450.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="117.0">
+        <columns>
+          <TableColumn fx:id="ColNom" maxWidth="1.7976931348623157E308" prefWidth="137.0" text="Nom" />
+          <TableColumn fx:id="ColPrenom" maxWidth="1.7976931348623157E308" prefWidth="132.0" text="Prénom" />
+            <TableColumn fx:id="ColSecu" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="296.0" text="Numéro de sécurité sociale" />
+            <TableColumn fx:id="ColNaissance" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="238.0" text="Date de naissance" />
+            <TableColumn fx:id="ColSexe" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="97.0" text="sexe" />
+        </columns>
+      </TableView>
 	</children>
 </AnchorPane>

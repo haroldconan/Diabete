@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="630.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
+<AnchorPane prefHeight="630.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMain">
    <children>
       <ToolBar prefHeight="67.0" prefWidth="901.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -24,15 +25,15 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" prefWidth="0.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="183.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="376.0" minHeight="10.0" prefHeight="376.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-style: solid; -fx-border-radius: 20;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+            <Pane prefHeight="457.0" prefWidth="801.0" style="-fx-border-style: solid; -fx-border-radius: 20;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                <children>
-                  <Text fx:id="TextAccueil" layoutX="521.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="le risque est donc faible, seul 1 personne sur 100 développera un diabète" textAlignment="CENTER" wrappingWidth="164.71728515625" />
-                  <Circle fill="#e1e1e1" layoutX="226.0" layoutY="187.0" radius="140.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Text fx:id="TextAccueil" layoutX="532.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Le risque est donc faible, seul 1 personne sur 100 développera un diabète" textAlignment="CENTER" wrappingWidth="164.71728515625" />
+                  <PieChart fx:id="StatRounded" layoutX="2.0" layoutY="-2.0" prefHeight="500.0" prefWidth="508.0" />
                </children>
             </Pane>
          </children>

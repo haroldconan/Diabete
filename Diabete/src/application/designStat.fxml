@@ -48,6 +48,13 @@
                       <NumberAxis fx:id="AxeY" label="Pourcentage de population" side="LEFT" />
                     </yAxis>
                   </BarChart>
+                  <TableView fx:id="TableauIndividue" layoutY="-1.0" prefHeight="450.0" prefWidth="800.0">
+                    <columns>
+                      <TableColumn fx:id="ColNom" prefWidth="222.0" text="Nom" />
+                      <TableColumn fx:id="ColPrenom" prefWidth="224.0" text="Prénom" />
+                        <TableColumn fx:id="ColSecu" minWidth="0.0" prefWidth="353.0" text="Numéro de sécurité sociale" />
+                    </columns>
+                  </TableView>
                </children></Pane>
          </children>
       </GridPane>

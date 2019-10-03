@@ -12,6 +12,13 @@ public class Individu {
 
 	// Constructeur
 
+	/**
+	 * @param nom
+	 * @param prenom
+	 * @param dateNaissance
+	 * @param sexe
+	 * @param numSecu
+	 */
 	public Individu( String nom, String prenom, Date dateNaissance, Boolean sexe, long numSecu) {
 		super();
 		this.nom = nom;

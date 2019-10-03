@@ -2,7 +2,7 @@ package application;
 
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import bd.Connect;
+import bd.Connexion;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -214,7 +214,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		Connect.firstConnexion();
+		Connexion.firstConnexion();
 		launch(args);
 	}
 }

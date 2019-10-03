@@ -2,6 +2,7 @@ package bd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,7 +10,7 @@ import java.sql.Statement;
  *
  * @author sqlitetutorial.net
  */
-public class Connect {
+public class Connexion {
 	/**
 	 * Connect to a sample database
 	 */
@@ -36,8 +37,6 @@ public class Connect {
 			Statement stmt = conn.createStatement();
 			stmt.execute(tableIndividu);
 			stmt.execute(tableDonnees);
-			// stmt.execute(query);
-			System.out.println("BD");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -48,6 +47,33 @@ public class Connect {
 			} catch (SQLException ex) {
 				System.out.println(ex.getMessage());
 			}
+		}
+	}
+
+	private static Connection connect() {
+		String url = "jdbc:sqlite:C:/sqlite/db/baseDiabete.db";
+		Connection conn = null;
+
+		try {
+			conn = DriverManager.getConnection(url);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return conn;
+	}
+
+	public static void insertIndividu(String name, String prenom, String dateNaissance, boolean sexe, String numSecu) {
+		String sql = "INSERT INTO Individu (nom, prenom, dateNaissance, sexe, numSecu) VALUES (?,?,?,?,?)";
+
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, name);
+			pstmt.setString(2, prenom);
+			pstmt.setString(3, dateNaissance);
+			pstmt.setBoolean(4, sexe);
+			pstmt.setString(5, numSecu);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 

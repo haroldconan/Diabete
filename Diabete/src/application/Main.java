@@ -1,26 +1,18 @@
 package application;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
-
+import bd.Connect;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
-import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.ComboBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -61,8 +53,7 @@ public class Main extends Application {
 					}
 				}
 			});
-			
-			
+
 			replaceSceneContent("designLog.fxml");
 			primaryStage.show();
 		} catch (Exception e) {
@@ -223,6 +214,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		Connect.connect();
 		launch(args);
 	}
 }

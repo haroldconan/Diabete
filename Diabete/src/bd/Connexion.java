@@ -6,20 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author sqlitetutorial.net
- */
 public class Connexion {
-	/**
-	 * Connect to a sample database
-	 */
 	public static void firstConnexion() {
 		Connection conn = null;
 		try {
-			// db parameters
 			String url = "jdbc:sqlite:C:/sqlite/db/baseDiabete.db";
-			// create a connection to the database
+	
 			conn = DriverManager.getConnection(url);
 
 			String tableIndividu = "CREATE TABLE IF NOT EXISTS individu (\n" + "    id integer PRIMARY KEY,\n"
@@ -50,7 +42,7 @@ public class Connexion {
 		}
 	}
 
-	private static Connection connect() {
+	public static Connection connect() {
 		String url = "jdbc:sqlite:C:/sqlite/db/baseDiabete.db";
 		Connection conn = null;
 

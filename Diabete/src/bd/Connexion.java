@@ -77,4 +77,28 @@ public class Connexion {
 		}
 	}
 
+	public static void insertDonnees(Integer idIndividu, float taille, float poids, int age, int tourDeTaille,
+			boolean actPhy, boolean atcdHta, boolean atcdFamille, boolean atcdGlyce, int legume, int resultat,
+			String date) {
+		String sql = "INSERT INTO donnees (idIndividu, taille, poids, age, tourDeTaille, actPhy, atcdAntiHTA, atcdFamille, atcdGlycemie, legumeVert, resultat ,date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, idIndividu);
+			pstmt.setFloat(2, taille);
+			pstmt.setFloat(3, poids);
+			pstmt.setInt(4, age);
+			pstmt.setInt(5, tourDeTaille);
+			pstmt.setBoolean(6, actPhy);
+			pstmt.setBoolean(7, atcdHta);
+			pstmt.setBoolean(8, atcdFamille);
+			pstmt.setBoolean(9, atcdGlyce);
+			pstmt.setInt(10, legume);
+			pstmt.setInt(11, resultat);
+			pstmt.setString(12, date);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

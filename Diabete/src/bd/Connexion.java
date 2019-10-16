@@ -3,6 +3,7 @@ package bd;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -11,7 +12,7 @@ public class Connexion {
 		Connection conn = null;
 		try {
 			String url = "jdbc:sqlite:C:/sqlite/db/baseDiabete.db";
-	
+
 			conn = DriverManager.getConnection(url);
 
 			String tableIndividu = "CREATE TABLE IF NOT EXISTS individu (\n" + "    id integer PRIMARY KEY,\n"
@@ -64,14 +65,14 @@ public class Connexion {
 			pstmt.setBoolean(4, sexe);
 			pstmt.setString(5, numSecu);
 			pstmt.executeUpdate();
-			
+
 			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	public static void insertDonnees(Integer idIndividu, float taille, float poids, int age, int tourDeTaille,
+	public static void insertDonnees(int idIndividu, float taille, float poids, int age, int tourDeTaille,
 			boolean actPhy, boolean atcdHta, boolean atcdFamille, boolean atcdGlyce, int legume, int resultat,
 			String date) {
 		String sql = "INSERT INTO donnees (idIndividu, taille, poids, age, tourDeTaille, actPhy, atcdAntiHTA, atcdFamille, atcdGlycemie, legumeVert, resultat ,date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -90,11 +91,38 @@ public class Connexion {
 			pstmt.setInt(11, resultat);
 			pstmt.setString(12, date);
 			pstmt.executeUpdate();
-			
+
 			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public static int getIdIndividu(String nom, String prenom) {
+		String sql = "SELECT id FROM individu WHERE nom = ? and prenom = ?";
+		int id = 0;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, nom);
+			pstmt.setString(2, prenom);
+			System.out.println("ici");
+			pstmt.executeUpdate();
+			
+			Statement stmt = conn.createStatement();
+			stmt.execute(sql);
+			
+			ResultSet res = stmt.getResultSet();
+			while (res.next()) {
+				id = res.getInt("id");
+				System.out.println("ici");
+			}
+			System.out.println(id);
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
 	}
 
 }

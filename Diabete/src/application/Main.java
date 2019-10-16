@@ -215,6 +215,9 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		Connexion.firstConnexion();
+		int test = 0;
+		test = Connexion.getIdIndividu("john", "rachid");
+		System.out.println(test);
 		launch(args);
 	}
 }

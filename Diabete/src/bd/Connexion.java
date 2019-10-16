@@ -99,23 +99,15 @@ public class Connexion {
 	}
 
 	public static int getIdIndividu(String nom, String prenom) {
-		String sql = "SELECT id FROM individu WHERE nom = ? and prenom = ?";
+		String sql = "SELECT id FROM individu WHERE nom = '"+ nom +"' and prenom = '"+ prenom +"'";
 		int id = 0;
 		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, nom);
-			pstmt.setString(2, prenom);
-			System.out.println("ici");
-			pstmt.executeUpdate();
-			
+			System.out.println(sql);
 			Statement stmt = conn.createStatement();
-			stmt.execute(sql);
-			
-			ResultSet res = stmt.getResultSet();
+			ResultSet res = stmt.executeQuery(sql);
 			while (res.next()) {
 				id = res.getInt("id");
-				System.out.println("ici");
 			}
-			System.out.println(id);
 			conn.close();
 			return id;
 		} catch (SQLException e) {

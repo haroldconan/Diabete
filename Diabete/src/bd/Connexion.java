@@ -64,6 +64,8 @@ public class Connexion {
 			pstmt.setBoolean(4, sexe);
 			pstmt.setString(5, numSecu);
 			pstmt.executeUpdate();
+			
+			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -88,6 +90,8 @@ public class Connexion {
 			pstmt.setInt(11, resultat);
 			pstmt.setString(12, date);
 			pstmt.executeUpdate();
+			
+			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

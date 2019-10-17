@@ -23,7 +23,6 @@ public class ControllerDonneePatient {
 
 	public void NouvelleEntree(ActionEvent event) {
 
-		System.out.println("Button Clicked!");
 		JOptionPane jop1;
 
 		// Boîte du message d'information
@@ -32,32 +31,24 @@ public class ControllerDonneePatient {
 	}
 
 	public void Statistiques(ActionEvent event) {
-		System.out.println("Button Clicked!");
-
 		// Boîte du message d'information
 		Main.replaceSceneContent("designStat.fxml");
 
 	}
 
 	public void Accueil(ActionEvent event) {
-		System.out.println("Button Clicked!");
-
 		// Boîte du message d'information
 		Main.replaceSceneContent("design.fxml");
 
 	}
 
 	public void Deconnexion(ActionEvent event) {
-		System.out.println("Button Clicked!");
-
 		// Boîte du message d'information
 		Main.replaceSceneContent("designLog.fxml");
 	}
 
 	public void Valider(ActionEvent event) {
 		try {
-			// test git
-			// test git//test git
 			if (taille.getText().equals("")) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Resulat pour : " + Main.individu.getNom() + " " + Main.individu.getPrenom());
@@ -113,17 +104,9 @@ public class ControllerDonneePatient {
 					return;
 				}
 			}
+			
 			Main.donnees.setAge(Main.donnees.calculAge(Main.individu.getDateNaissance()));
 			Main.donnees.setTourDeTaille(Double.parseDouble(tourTaille.getText()));
-
-			System.out.println("tout :\n" + Main.individu.getId() + "\n" + Main.individu.getNom() + "\n"
-					+ Main.individu.getNumSecu() + "\n" + Main.individu.getPrenom() + "\n"
-					+ Main.individu.getDateNaissance() + "\n" + Main.individu.getSexe() + "\n" + Main.donnees.getAge()
-					+ "\n" + Main.donnees.getId() + "\n" + Main.donnees.getIdIndividu() + "\n"
-					+ Main.donnees.getLegumeVert() + "\n" + Main.donnees.getPoids() + "\n" + Main.donnees.getTaille()
-					+ "\n" + Main.donnees.getTourDeTaille());
-			// Boîte du message d'information
-			System.out.println(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe())));
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Resulat pour : " + Main.individu.getNom() + " " + Main.individu.getPrenom());
 			alert.setHeaderText(
@@ -143,7 +126,7 @@ public class ControllerDonneePatient {
 					+ Main.donnees.isActPhysique() + "\n\t\t\t\tAntécédent Anti-HTA : " + Main.donnees.isAtcdAntiHTA()
 					+ "\n\t\t\t\tAntécédent Familliale : " + Main.donnees.isAtcdFamille()
 					+ "\n\t\t\t\tAntécédent Glycémique : " + Main.donnees.isAtcdGlycemie());
-			alert.showAndWait();// d
+			alert.showAndWait();
 			Connexion.insertIndividu(Main.individu.getNom(), Main.individu.getPrenom(),
 					Main.individu.getDateNaissance().toString(), Main.individu.getSexe(),
 					String.valueOf(Main.individu.getNumSecu()));

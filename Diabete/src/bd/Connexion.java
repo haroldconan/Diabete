@@ -141,7 +141,7 @@ public class Connexion {
 
 	}
 	public static int getStat4Accueil() {
-		String sql = "SELECT resultat FROM donnees where resultat<4 or resultat=4";
+		String sql = "SELECT resultat FROM donnees where resultat<4 and resultat>1 or resultat=4";
 		int id = 0 ;
 		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			System.out.println(sql);
@@ -159,7 +159,7 @@ public class Connexion {
 
 	}
 	public static int getStat17Accueil() {
-		String sql = "SELECT resultat FROM donnees where resultat<17 or resultat=17";
+		String sql = "SELECT resultat FROM donnees where resultat<17 and resultat>1 or resultat=17";
 		int id = 0 ;
 		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			System.out.println(sql);
@@ -177,7 +177,7 @@ public class Connexion {
 
 	}
 	public static int getStat33Accueil() {
-		String sql = "SELECT resultat FROM donnees where resultat<33 or resultat=33";
+		String sql = "SELECT resultat FROM donnees where resultat<33 and resultat>1 or resultat=33";
 		int id = 0 ;
 		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			System.out.println(sql);
@@ -195,7 +195,7 @@ public class Connexion {
 
 	}
 	public static int getStat50Accueil() {
-		String sql = "SELECT resultat FROM donnees where resultat<50 or resultat=50";
+		String sql = "SELECT resultat FROM donnees where resultat<50 and resultat>1 or resultat=50";
 		int id = 0 ;
 		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			System.out.println(sql);

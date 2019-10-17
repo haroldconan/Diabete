@@ -105,19 +105,18 @@ public class ControllerDonneePatient {
 					return;
 				}
 			}
-			
-			Main.donnees.setAge(Main.donnees.calculAge(new SimpleDateFormat("dd/MM/yyyy").parse(Main.individu.getDateNaissance())));
+			SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
+			Main.donnees.setAge(Main.donnees.calculAge(formater.parse(Main.individu.getDateNaissance())));
 			Main.donnees.setTourDeTaille(Double.parseDouble(tourTaille.getText()));
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Resulat pour : " + Main.individu.getNom() + " " + Main.individu.getPrenom());
 			alert.setHeaderText(
 					"\t\t\t\t\t\t\t\tNuméro de sécurité sociale :" + Main.individu.getNumSecu() + "\t\t\t\t\t\t\t\t");
-			SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 			alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))
 					+ "\t\t\t\t\n\n" + "\t\t\t\t\tPatient :\n" + "\n"
 					+ "\t\t\t\tNom :" + Main.individu.getNom() + "\n\t\t\t\tPrénom : " + Main.individu.getPrenom()
 					+ "\n\t\t\t\tNuméro de sécurité sociale : " + Main.individu.getNumSecu()
-					+ "\n\t\t\t\tDate de naissance : " + formater.format(Main.individu.getDateNaissance())
+					+ "\n\t\t\t\tDate de naissance : " + Main.individu.getDateNaissance()
 					+ "\n\t\t\t\tSexe : " + Main.individu.getSexe() + "\n\t\t\t\tAge : " + Main.donnees.getAge()
 					+ "\n\n\t\t\t\t\tDonnées du patient : \n\t\t\t\t"
 					+ "\n\t\t\t\tPortiont de légume vert : " + Main.donnees.getLegumeVert() + "\n\t\t\t\tPoids : "

@@ -132,7 +132,6 @@ public class ControllerInfoPatient {
 		try {
 			Main.individu.setNom(Nom.getText());
 			Main.individu.setPrenom(Prenom.getText());
-			SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 			Main.individu.setDateNaissance(DateNaissance.getText());
 			Main.individu.setNumSecu(Long.parseLong(NumSecu.getText()));
 			// Boîte du message d'information

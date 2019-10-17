@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
+import bd.Connexion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -121,6 +122,13 @@ public class ControllerDonneePatient {
 	       SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 	       alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))+"\t\t\t\t\n\n"+"\t\t\t\t\tPatient :\n"+"\t\t\t\tId : "+Main.individu.getId()+"\n"+"\t\t\t\tNom :"+Main.individu.getNom()+"\n\t\t\t\tPrénom : "+Main.individu.getPrenom()+"\n\t\t\t\tNuméro de sécurité sociale : "+Main.individu.getNumSecu()+"\n\t\t\t\tDate de naissance : "+formater.format(Main.individu.getDateNaissance())+"\n\t\t\t\tSexe : "+Main.individu.getSexe()+"\n\t\t\t\tAge : "+Main.donnees.getAge()+"\n\n\t\t\t\t\tDonnées du patient : \n\t\t\t\tId : "+Main.donnees.getId()+"\n\t\t\t\tId Individue : "+Main.donnees.getIdIndividu()+"\n\t\t\t\tPortiont de légume vert : "+Main.donnees.getLegumeVert()+"\n\t\t\t\tPoids : "+Main.donnees.getPoids()+" Taille : "+Main.donnees.getTaille()+" Tour de Taille : "+Main.donnees.getTourDeTaille()+"\n\t\t\t\t30 min 'activitée phyisique : "+Main.donnees.isActPhysique()+"\n\t\t\t\tAntécédent Anti-HTA : "+Main.donnees.isAtcdAntiHTA()+"\n\t\t\t\tAntécédent Familliale : "+Main.donnees.isAtcdFamille()+"\n\t\t\t\tAntécédent Glycémique : "+Main.donnees.isAtcdGlycemie());
 		   alert.showAndWait();//d
+		   int idIndividu = Connexion.getIdIndividu(Main.individu.getNom(), Main.individu.getPrenom());
+			System.out.println(idIndividu);
+		   Connexion.insertDonnees(idIndividu, (int) Main.donnees.getTaille(), (int) Main.donnees.getPoids(),
+					Main.donnees.getAge(), (int) Main.donnees.getTourDeTaille(), Main.donnees.isActPhysique(),
+					Main.donnees.isAtcdAntiHTA(), Main.donnees.isAtcdFamille(), Main.donnees.isAtcdGlycemie(),
+					Main.donnees.getLegumeVert(), Main.donnees.getResultat(), Main.donnees.getDate().toString());
+			
 		   Main.replaceSceneContent("design.fxml");
 		}catch (Exception e) {
 			System.out.println("ControllerDonnee"+e.getMessage());

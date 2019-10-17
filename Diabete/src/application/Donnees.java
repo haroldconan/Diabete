@@ -196,7 +196,7 @@ public class Donnees {
 		resultat = resultatLegumeVert(legumeVert, resultat);
 		// Calcul du score concernant les antécédent
 		resultat = resultatATCD(atcdAntiHTA, atcdFamille, atcdGlycemie, resultat);
-
+		setResultat(resultat);
 		return resultat;
 	}
 

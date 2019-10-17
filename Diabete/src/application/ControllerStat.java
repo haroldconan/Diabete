@@ -89,10 +89,10 @@ public class ControllerStat implements Initializable {
 		// PARTIE GRAPH
 		System.out.println("passe dans initialise");
 
-		XYChart.Series set1 = GetStat("");
+		XYChart.Series set1 = GetStatHomme("");
 		set1.setName("Pourcentage de patients Homme");
 
-		XYChart.Series set2 = GetStat("");
+		XYChart.Series set2 = GetStatFemme("");
 		set2.setName("Pourcentage de patients Femme");
 		GraphStat.getData().addAll(set1);
 		GraphStat.getData().addAll(set2);
@@ -137,14 +137,26 @@ public class ControllerStat implements Initializable {
 	 * @return la liste d'élément à mettre dans un axe
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private XYChart.Series GetStat(String requete) {
+	private XYChart.Series GetStatHomme(String requete) {
 
 		XYChart.Series serieBDD = new XYChart.Series<>();
-		serieBDD.getData().add(new XYChart.Data("Risque de 1%", Connexion.getStat1Accueil()));
-		serieBDD.getData().add(new XYChart.Data("Risque de 4%", Connexion.getStat4Accueil()));
-		serieBDD.getData().add(new XYChart.Data("Risque de 17%", Connexion.getStat17Accueil()));
-		serieBDD.getData().add(new XYChart.Data("Risque de 33%", Connexion.getStat33Accueil()));
-		serieBDD.getData().add(new XYChart.Data("Risque de 50%", Connexion.getStat50Accueil()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 1%", Connexion.getStat1AccueilH()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 4%", Connexion.getStat4AccueilH()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 17%", Connexion.getStat17AccueilH()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 33%", Connexion.getStat33AccueilH()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 50%", Connexion.getStat50AccueilH()));
+
+		return serieBDD;
+	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private XYChart.Series GetStatFemme(String requete) {
+
+		XYChart.Series serieBDD = new XYChart.Series<>();
+		serieBDD.getData().add(new XYChart.Data("Risque de 1%", Connexion.getStat1AccueilF()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 4%", Connexion.getStat4AccueilF()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 17%", Connexion.getStat17AccueilF()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 33%", Connexion.getStat33AccueilF()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 50%", Connexion.getStat50AccueilF()));
 
 		return serieBDD;
 	}

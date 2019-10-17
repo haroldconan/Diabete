@@ -126,6 +126,7 @@ public class ControllerDonneePatient {
 					+ "\n\t\t\t\tAntécédent Familliale : " + Main.donnees.isAtcdFamille()
 					+ "\n\t\t\t\tAntécédent Glycémique : " + Main.donnees.isAtcdGlycemie());
 			alert.showAndWait();
+			Main.donnees.calculResultat(Main.individu.getSexe())
 			Connexion.insertIndividu(Main.individu.getNom(), Main.individu.getPrenom(),
 					Main.individu.getDateNaissance().toString(), Main.individu.getSexe(),
 					String.valueOf(Main.individu.getNumSecu()));

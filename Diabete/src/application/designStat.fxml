@@ -23,7 +23,6 @@
         <items>
           <Button mnemonicParsing="false" onAction="#BTlistIndiviue" text="Liste individus" translateX="50.0" />
             <Button mnemonicParsing="false" onAction="#BTGraphSexe" text="Garph sexe" translateX="70.0" />
-            <Button mnemonicParsing="false" onAction="#BTGraphAge" text="Graph âge" translateX="90.0" />
         </items>
       </ToolBar>
       <GridPane layoutY="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">

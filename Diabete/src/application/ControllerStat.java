@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -127,7 +126,7 @@ public class ControllerStat implements Initializable {
 
 	@FXML
 	void BTGraphAge(ActionEvent event) {
-
+		
 	}
 
 	/**
@@ -157,6 +156,18 @@ public class ControllerStat implements Initializable {
 		serieBDD.getData().add(new XYChart.Data("Risque de 17%", Connexion.getStat17AccueilF()));
 		serieBDD.getData().add(new XYChart.Data("Risque de 33%", Connexion.getStat33AccueilF()));
 		serieBDD.getData().add(new XYChart.Data("Risque de 50%", Connexion.getStat50AccueilF()));
+
+		return serieBDD;
+	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private XYChart.Series GetStatGene(String requete) {
+
+		XYChart.Series serieBDD = new XYChart.Series<>();
+		serieBDD.getData().add(new XYChart.Data("Risque de 1%", Connexion.getStat1Accueil()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 4%", Connexion.getStat4Accueil()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 17%", Connexion.getStat17Accueil()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 33%", Connexion.getStat33Accueil()));
+		serieBDD.getData().add(new XYChart.Data("Risque de 50%", Connexion.getStat50Accueil()));
 
 		return serieBDD;
 	}

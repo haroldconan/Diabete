@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import bd.Connexion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,11 +64,11 @@ public class ControllerMain implements Initializable {
 
 	private List<PieChart.Data> GetStatAccueil() {
 		List<PieChart.Data> listAccueil = new ArrayList<PieChart.Data>();
-		listAccueil.add(new PieChart.Data("Risque de 1%", 50));
-		listAccueil.add(new PieChart.Data("Risque de 4%", 20));
-		listAccueil.add(new PieChart.Data("Risque de 17%", 5));
-		listAccueil.add(new PieChart.Data("Risque de 33%", 10));
-		listAccueil.add(new PieChart.Data("Risque de 50%", 15));
+		listAccueil.add(new PieChart.Data("Risque de 1%", Connexion.getStat1Accueil()));
+		listAccueil.add(new PieChart.Data("Risque de 4%", Connexion.getStat4Accueil()));
+		listAccueil.add(new PieChart.Data("Risque de 17%", Connexion.getStat17Accueil()));
+		listAccueil.add(new PieChart.Data("Risque de 33%", Connexion.getStat33Accueil()));
+		listAccueil.add(new PieChart.Data("Risque de 50%", Connexion.getStat50Accueil()));
 		return listAccueil;
 	}
 

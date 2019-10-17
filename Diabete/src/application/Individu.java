@@ -6,7 +6,7 @@ public class Individu {
 	private int id;
 	private String nom;
 	private String prenom;
-	private Date dateNaissance;
+	private String dateNaissance;
 	private Boolean sexe;
 	private long numSecu;
 
@@ -19,7 +19,7 @@ public class Individu {
 	 * @param sexe
 	 * @param numSecu
 	 */
-	public Individu( String nom, String prenom, Date dateNaissance, Boolean sexe, long numSecu) {
+	public Individu( String nom, String prenom, String dateNaissance, Boolean sexe, long numSecu) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -57,11 +57,11 @@ public class Individu {
 		this.prenom = prenom;
 	}
 
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return dateNaissance;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 

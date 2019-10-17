@@ -106,7 +106,7 @@ public class ControllerDonneePatient {
 				}
 			}
 			
-			Main.donnees.setAge(Main.donnees.calculAge(Main.individu.getDateNaissance()));
+			Main.donnees.setAge(Main.donnees.calculAge(new SimpleDateFormat("dd/MM/yyyy").parse(Main.individu.getDateNaissance())));
 			Main.donnees.setTourDeTaille(Double.parseDouble(tourTaille.getText()));
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Resulat pour : " + Main.individu.getNom() + " " + Main.individu.getPrenom());

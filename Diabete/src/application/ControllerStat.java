@@ -1,9 +1,11 @@
 package application;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import bd.Connexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -147,12 +149,14 @@ public class ControllerStat implements Initializable {
 	}
 
 	private ObservableList<Individu> getIndividuList() {
-		long secu = Long.parseLong("8888888888888");
-		Individu indi1 = new Individu("CONAN", "Harold", new Date("04/28/1999"), true, secu);
-		Individu indi2 = new Individu("CONAN", "Harold", new Date("04/28/1999"), true, secu);
-		Individu indi3 = new Individu("CONAN", "Harold", new Date("04/28/1999"), true, secu);
-		Individu indi4 = new Individu("CONAN", "Harold", new Date("04/28/1999"), true, secu);
-		ObservableList<Individu> list = FXCollections.observableArrayList(indi1, indi2, indi3, indi4);
+		
+		ObservableList<Individu> list = FXCollections.observableArrayList();
+		try {
+			list.addAll(Connexion.getListIndividues());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return list;
 	}
 }

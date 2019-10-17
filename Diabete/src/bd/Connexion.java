@@ -6,6 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+import application.Individu;
 
 public class Connexion {
 	public static void firstConnexion() {
@@ -204,6 +210,30 @@ public class Connexion {
 			System.out.println(e.getMessage());
 		}
 		return id;
+
+	}
+	public static List<Individu> getListIndividues() throws ParseException {
+		String sql = "SELECT * FROM individu";
+		ArrayList<Individu> indi = new ArrayList<Individu>();
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				try {
+					System.out.println(res.getString("dateNaissance"));
+					indi.add(new Individu(res.getString("nom"),res.getString("prenom"),res.getString("dateNaissance"), Boolean.parseBoolean(res.getString("sexe")), Long.parseLong(res.getString("numsecu"))));
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			conn.close();
+			return indi;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return indi;
 
 	}
 

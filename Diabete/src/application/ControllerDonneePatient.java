@@ -1,6 +1,7 @@
 package application;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.swing.JOptionPane;
@@ -131,11 +132,12 @@ public class ControllerDonneePatient {
 					Main.individu.getDateNaissance().toString(), Main.individu.getSexe(),
 					String.valueOf(Main.individu.getNumSecu()));
 			int idIndividu = Connexion.getIdIndividu(Main.individu.getNom(), Main.individu.getPrenom());
+			Date d = new Date();
 			System.out.println(idIndividu);
 			Connexion.insertDonnees(idIndividu, (int) Main.donnees.getTaille(), (int) Main.donnees.getPoids(),
 					Main.donnees.getAge(), (int) Main.donnees.getTourDeTaille(), Main.donnees.isActPhysique(),
 					Main.donnees.isAtcdAntiHTA(), Main.donnees.isAtcdFamille(), Main.donnees.isAtcdGlycemie(),
-					Main.donnees.getLegumeVert(), Main.donnees.getResultat(), Main.donnees.getDate().toString());
+					Main.donnees.getLegumeVert(), Main.donnees.getResultat(), d.toString());
 
 			Main.replaceSceneContent("design.fxml");
 		} catch (Exception e) {

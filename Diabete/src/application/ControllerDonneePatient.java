@@ -114,13 +114,12 @@ public class ControllerDonneePatient {
 					"\t\t\t\t\t\t\t\tNuméro de sécurité sociale :" + Main.individu.getNumSecu() + "\t\t\t\t\t\t\t\t");
 			SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 			alert.setContentText(Main.donnees.toString(Main.donnees.calculResultat(Main.individu.getSexe()))
-					+ "\t\t\t\t\n\n" + "\t\t\t\t\tPatient :\n" + "\t\t\t\tId : " + Main.individu.getId() + "\n"
+					+ "\t\t\t\t\n\n" + "\t\t\t\t\tPatient :\n" + "\n"
 					+ "\t\t\t\tNom :" + Main.individu.getNom() + "\n\t\t\t\tPrénom : " + Main.individu.getPrenom()
 					+ "\n\t\t\t\tNuméro de sécurité sociale : " + Main.individu.getNumSecu()
 					+ "\n\t\t\t\tDate de naissance : " + formater.format(Main.individu.getDateNaissance())
 					+ "\n\t\t\t\tSexe : " + Main.individu.getSexe() + "\n\t\t\t\tAge : " + Main.donnees.getAge()
-					+ "\n\n\t\t\t\t\tDonnées du patient : \n\t\t\t\tId : " + Main.donnees.getId()
-					+ "\n\t\t\t\tId Individue : " + Main.donnees.getIdIndividu()
+					+ "\n\n\t\t\t\t\tDonnées du patient : \n\t\t\t\t"
 					+ "\n\t\t\t\tPortiont de légume vert : " + Main.donnees.getLegumeVert() + "\n\t\t\t\tPoids : "
 					+ Main.donnees.getPoids() + " Taille : " + Main.donnees.getTaille() + " Tour de Taille : "
 					+ Main.donnees.getTourDeTaille() + "\n\t\t\t\t30 min 'activitée phyisique : "

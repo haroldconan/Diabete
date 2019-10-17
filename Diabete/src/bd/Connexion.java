@@ -116,5 +116,97 @@ public class Connexion {
 		return id;
 
 	}
+	public static int getStat1Accueil() {
+		String sql = "SELECT count(resultat) FROM donnees where resultat<1 or resultat=1";
+		int id = 0 ;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				id = res.getInt("");
+			}
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
+	}
+	public static int getStat4Accueil() {
+		String sql = "SELECT count(resultat) FROM donnees where resultat<4 or resultat=4";
+		int id = 0 ;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				id = res.getInt("");
+			}
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
+	}
+	public static int getStat17Accueil() {
+		String sql = "SELECT count(resultat) FROM donnees where resultat<17 or resultat=17";
+		int id = 0 ;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				id = res.getInt("");
+			}
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
+	}
+	public static int getStat33Accueil() {
+		String sql = "SELECT count(resultat) FROM donnees where resultat<33 or resultat=33";
+		int id = 0 ;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				id = res.getInt("");
+			}
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
+	}
+	public static int getStat50Accueil() {
+		String sql = "SELECT count(resultat) FROM donnees where resultat<50 or resultat=50";
+		int id = 0 ;
+		try (Connection conn = connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				id = res.getInt("");
+			}
+			conn.close();
+			return id;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return id;
+
+	}
+
+	
 
 }
